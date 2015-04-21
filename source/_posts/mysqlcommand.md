@@ -16,6 +16,10 @@ alter table test modify column A int(11)
 alter table test drop column A 
 alter table test add unique('phone')	添加唯一键
 
+### 修改字段名 同时去掉on update CURRENT_TIMESTAMP
+alter table TP_PROD_SKU change create_dt 
+		create_dt timestamp not null default current_timestamp;
+
 ## 赋权
 grant select,insert,update,delete on {database}.{table or *} to '{username}'@'{127.0.0.1}' identified by "{password}";
 select user,host from mysql.user; 
